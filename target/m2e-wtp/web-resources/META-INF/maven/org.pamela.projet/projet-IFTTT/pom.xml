@@ -65,6 +65,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>iftt-api</finalName>
 		<plugins>
 			<!-- Packaging WAR -->
 			<plugin>

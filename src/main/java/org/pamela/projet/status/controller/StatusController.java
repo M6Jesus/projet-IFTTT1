@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/api/ifttt/v1")
 public class StatusController {
 
-	@RequestMapping(value = "/status", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/status", method = RequestMethod.GET)
 	public ResponseEntity<String> statusCheck(HttpServletRequest request) {
 		String IftttServiceKey = "23VjEuaT7ZzTthcGFaCBiUfsNAeuIlWMzmIaSk5mHQSKjTWT8fjBYGHAz34atJ6A";
 		if(request.getHeader("IFTTT-Service-Key") == IftttServiceKey) {
