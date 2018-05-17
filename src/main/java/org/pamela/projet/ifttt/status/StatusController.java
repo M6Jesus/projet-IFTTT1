@@ -1,4 +1,4 @@
-package org.pamela.projet.status.controller;
+package org.pamela.projet.ifttt.status;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,12 +14,16 @@ public class StatusController {
 
 	@RequestMapping(value = "/status", method = RequestMethod.GET)
 	public ResponseEntity<String> statusCheck(HttpServletRequest request) {
-		String IftttServiceKey = "23VjEuaT7ZzTthcGFaCBiUfsNAeuIlWMzmIaSk5mHQSKjTWT8fjBYGHAz34atJ6A";
-		if(request.getHeader("IFTTT-Service-Key") == IftttServiceKey) {
-		    return new ResponseEntity<String>(HttpStatus.OK);
-		}	
+		String iftttServiceKey = "23VjEuaT7ZzTthcGFaCBiUfsNAeuIlWMzmIaSk5mHQSKjTWT8fjBYGHAz34atJ6A";
+		String iftttChannelKey = "INVALID";
+		if (iftttServiceKey.equals(request.getHeader("IFTTT-Service-Key"))) {
+			return new ResponseEntity<String>(HttpStatus.OK);
+		}else if (request.getHeader("IFTTT-Channel-Key").equals(iftttChannelKey)) {
+			return new ResponseEntity<String>(HttpStatus.UNAUTHORIZED);
+		}
+		
 		else {
-		    return new ResponseEntity<String>(HttpStatus.SERVICE_UNAVAILABLE);
+			return new ResponseEntity<String>(HttpStatus.SERVICE_UNAVAILABLE);
 
 		}
 	}
