@@ -1,4 +1,4 @@
-package org.pamela.projet.ifttt.status;
+package org.pamela.projet.ifttt.status.ControllerStatus;
 
 import javax.servlet.http.HttpServletRequest;
 
